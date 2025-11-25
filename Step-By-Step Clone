@@ -1,0 +1,62 @@
+Welcome to the Masruroh Inventory System repository. This guide provides step-by-step instructions on how to clone and run the project on your local machine. 
+
+Prerequisites
+Ensure the following software is installed on your system:
+PHP (Version 8.2 or later)
+Composer
+Node.js & NPM
+MySQL (or MariaDB/XAMPP/Laragon)
+Git
+
+Installation Steps
+Follow the steps below to set up and run the project:
+1. Clone the Repository
+Open your terminal (Command Prompt/PowerShell/Git Bash) and run:
+#git clone https://github.com/your-username/your-repository.git
+#cd your-repository
+
+(Replace the URL above with your actual GitHub repository URL.)
+
+2. Install Dependencies
+Install the required PHP and JavaScript dependencies:
+#composer install
+#npm install
+
+3. Configure the Environment (.env)
+Copy the example environment file .env.example to .env:
+#cp .env.example .env
+(On Windows Command Prompt use: copy .env.example .env)
+
+Open the .env file and update your database configuration:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=inventory_db  # Replace with your database name
+DB_USERNAME=root          # Adjust your database username
+DB_PASSWORD=              # Adjust your database password
+
+4. Generate Application Key
+Generate the Laravel application encryption key:
+#php artisan key:generate
+
+5. Set Up the Database
+Create a new database in MySQL (e.g., inventory_db) if it does not exist. Then run the migrations and seeders:
+#php artisan migrate --seed
+This command will create all necessary tables and insert initial data (such as the default admin account).
+
+6. Build Frontend Assets
+Compile CSS and JavaScript assets:
+#npm run build
+
+7. Run the Application
+Start the Laravel local development server:
+#php artisan serve
+
+Access the application in your browser at:
+http://localhost:8000
+
+Default Login Credentials (If Seeder Is Used)
+If using the default seeder, you may log in with:
+Email: admin@example.com (or as defined in the seeder)
+
+Password: password (or as defined in the seeder)
